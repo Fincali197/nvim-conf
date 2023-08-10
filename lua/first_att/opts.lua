@@ -1,4 +1,5 @@
 local opt = vim.opt
+local cmd = vim.cmd
 vim.g.mapleader = " "
 
 opt.clipboard = "unnamedplus"
@@ -25,13 +26,14 @@ opt.sidescrolloff = 12
 
 opt.showmode = false
 
---WARNING: It is dangerous to uncomment the next line, unless you know what you're doing.
+opt.incsearch = true
+
+--WARNING: It is dangerous to comment the next line, unless you know what you're doing.
 -- opt.swapfile = false
 
-vim.cmd[[augroup highlight_yank]]
-vim.cmd[[autocmd!]]
+vim.api.nvim_set_hl(0, "Hightlight_Group1", { bg = "#fab387", fg = "#1e1e2e" })
 
-vim.api.nvim_set_hl(0, "Hightlight_Group1", { bg='#fab387', fg='#1e1e2e' })
-
-vim.cmd[[au TextYankPost * silent! lua vim.highlight.on_yank{higroup="Hightlight_Group1", timeout=150}]]
-vim.cmd[[augroup END]]
+cmd([[augroup highlight_yank]])
+cmd([[autocmd!]])
+cmd([[au TextYankPost * silent! lua vim.highlight.on_yank{higroup="Hightlight_Group1", timeout=130}]])
+cmd([[augroup END]])
