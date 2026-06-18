@@ -1,6 +1,8 @@
 local opt = vim.opt
 local cmd = vim.cmd
 
+opt.grepprg = "rg --vimgrep"
+
 opt.clipboard = "unnamedplus"
 
 opt.termguicolors = true
