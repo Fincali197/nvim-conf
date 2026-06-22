@@ -6,7 +6,14 @@ vim.keymap.set('n', '<leader>pg', builtin.live_grep, { desc = 'Telescope live gr
 vim.keymap.set('n', '<leader>pb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>ph', builtin.help_tags, { desc = 'Telescope help tags' })
 
--- Switch the focused window with Alt + h/j/k/l
+-- Make D be d but no yank
+vim.keymap.set('v', 'D', '"_d', { noremap = true, silent = true })
+
+-- Center view when jumping with <C-d>, <C-u>
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
+
+-- Switch the focused window with Ctrl + h/j/k/l
 keymap.set({ "n", "i", "t" }, "<C-h>", "<cmd> TmuxNavigateLeft<cr>")
 keymap.set({ "n", "i", "t" }, "<C-j>", "<cmd> TmuxNavigateDown<cr>")
 keymap.set({ "n", "i", "t" }, "<C-k>", "<cmd> TmuxNavigateUp<cr>")

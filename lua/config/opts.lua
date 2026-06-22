@@ -3,6 +3,8 @@ local cmd = vim.cmd
 
 opt.grepprg = "rg --vimgrep"
 
+opt.mouse = ""
+
 opt.clipboard = "unnamedplus"
 
 opt.termguicolors = true
@@ -33,5 +35,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 	end,
 })
 
-vim.lsp.enable("lua_ls")
-vim.lsp.enable("qmlls")
+vim.api.nvim_set_hl(0, "Normal", {bg = 'none' })
+
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('qmlls')
+vim.lsp.enable('rust_analyzer')
