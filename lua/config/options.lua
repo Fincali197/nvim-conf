@@ -1,37 +1,32 @@
-local opt = vim.opt
-local cmd = vim.cmd
-local api = vim.api
-local lsp = vim.lsp
+vim.opt.grepprg = "rg --vimgrep"
 
-opt.grepprg = "rg --vimgrep"
+vim.opt.mouse = ""
 
-opt.mouse = ""
+vim.opt.clipboard = "unnamedplus"
 
-opt.clipboard = "unnamedplus"
+vim.opt.termguicolors = true
 
-opt.termguicolors = true
+vim.opt.grepprg = "rg --vimgrep"
 
-opt.grepprg = "rg --vimgrep"
+vim.opt.nu = true
+vim.opt.relativenumber = true
+vim.opt.cursorline = true
 
-opt.nu = true
-opt.relativenumber = true
-opt.cursorline = true
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 0
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = false
 
-opt.tabstop = 4
-opt.softtabstop = 0
-opt.shiftwidth = 4
-opt.expandtab = false
+vim.opt.scrolloff = 8
 
-opt.scrolloff = 8
+vim.opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
+vim.opt.undofile = true
 
-opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
-opt.undofile = true
+vim.cmd.colorscheme("noir")
 
-cmd.colorscheme("noir")
-
-api.nvim_create_autocmd('TextYankPost', {
+vim.api.nvim_create_autocmd('TextYankPost', {
 	desc = 'Highlight when copying text',
-	group = api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+	group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
 	callback = function()
 		vim.highlight.on_yank()
 	end,
@@ -45,9 +40,11 @@ local groups = {
     'EndOfBuffer',
 }
 for i = 1, #groups do
-	api.nvim_set_hl(0, groups[i], { bg = 'none' })
+	if groups[i] ~= 'CursorLine' then
+		vim.api.nvim_set_hl(0, groups[i], { bg = 'none' })
+	end
 end
 
-lsp.enable('lua_ls')
-lsp.enable('qmlls')
-lsp.enable('rust_analyzer')
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('qmlls')
+vim.lsp.enable('rust_analyzer')
