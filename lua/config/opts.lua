@@ -1,5 +1,7 @@
 local opt = vim.opt
 local cmd = vim.cmd
+local api = vim.api
+local lsp = vim.lsp
 
 opt.grepprg = "rg --vimgrep"
 
@@ -27,16 +29,25 @@ opt.undofile = true
 
 cmd.colorscheme("noir")
 
-vim.api.nvim_create_autocmd('TextYankPost', {
+api.nvim_create_autocmd('TextYankPost', {
 	desc = 'Highlight when copying text',
-	group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+	group = api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
 	callback = function()
 		vim.highlight.on_yank()
 	end,
 })
 
-vim.api.nvim_set_hl(0, "Normal", {bg = 'none' })
+local groups = {
+    'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
+    'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
+    'Conditional', 'Repeat', 'Operator', 'Structure', 'NonText',
+    'SignColumn', 'CursorLine', 'CursorLineNr', 'StatusLine', 'StatusLineNC',
+    'EndOfBuffer',
+}
+for i = 1, #groups do
+	api.nvim_set_hl(0, groups[i], { bg = 'none' })
+end
 
-vim.lsp.enable('lua_ls')
-vim.lsp.enable('qmlls')
-vim.lsp.enable('rust_analyzer')
+lsp.enable('lua_ls')
+lsp.enable('qmlls')
+lsp.enable('rust_analyzer')

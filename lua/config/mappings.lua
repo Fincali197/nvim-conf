@@ -9,6 +9,9 @@ vim.keymap.set('n', '<leader>ph', builtin.help_tags, { desc = 'Telescope help ta
 -- Make D be d but no yank
 vim.keymap.set('v', 'D', '"_d', { noremap = true, silent = true })
 
+-- Format current file with leader+f
+vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
+
 -- Center view when jumping with <C-d>, <C-u>
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
