@@ -38,5 +38,3 @@ require("lazy").setup({
 require("mini.pairs").setup()
 MiniPairs.unmap("i", '"', '""')
 MiniPairs.unmap("i", "'", "''")
-
-require("config.treesitter")
