@@ -49,6 +49,9 @@ for _, group in ipairs(groups) do
 	end
 end
 
+vim.api.nvim_set_hl(0, 'StatusLine', { underline = true, update = true })
+vim.api.nvim_set_hl(0, 'StatusLineNC', { underline = false, update = true })
+
 vim.lsp.enable('lua_ls')
 
 vim.lsp.enable('qmlls')

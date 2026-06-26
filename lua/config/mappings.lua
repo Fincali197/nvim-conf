@@ -17,10 +17,10 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
 
 -- Switch the focused window with Ctrl + h/j/k/l
-keymap.set({ "n", "i", "t" }, "<C-h>", "<cmd> TmuxNavigateLeft<cr>")
-keymap.set({ "n", "i", "t" }, "<C-j>", "<cmd> TmuxNavigateDown<cr>")
-keymap.set({ "n", "i", "t" }, "<C-k>", "<cmd> TmuxNavigateUp<cr>")
-keymap.set({ "n", "i", "t" }, "<C-l>", "<cmd> TmuxNavigateRight<cr>")
+-- keymap.set({ "n", "i", "t" }, "<C-h>", "<cmd> TmuxNavigateLeft<cr>")
+-- keymap.set({ "n", "i", "t" }, "<C-j>", "<cmd> TmuxNavigateDown<cr>")
+-- keymap.set({ "n", "i", "t" }, "<C-k>", "<cmd> TmuxNavigateUp<cr>")
+-- keymap.set({ "n", "i", "t" }, "<C-l>", "<cmd> TmuxNavigateRight<cr>")
 
 -- Resize window using <ctrl> arrow keys
 keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
