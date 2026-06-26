@@ -17,6 +17,10 @@ vim.opt.softtabstop = 0
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
 
+vim.opt.signcolumn = "yes"
+
+vim.opt.winborder = "rounded"
+
 vim.opt.scrolloff = 8
 
 vim.opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
@@ -37,11 +41,11 @@ local groups = {
     'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
     'Conditional', 'Repeat', 'Operator', 'Structure', 'NonText',
     'SignColumn', 'CursorLine', 'CursorLineNr', 'StatusLine', 'StatusLineNC',
-    'EndOfBuffer',
+    'EndOfBuffer', 'NormalFloat'
 }
-for i = 1, #groups do
-	if groups[i] ~= 'CursorLine' then
-		vim.api.nvim_set_hl(0, groups[i], { bg = 'none' })
+for _, group in ipairs(groups) do
+	if group ~= 'CursorLine' then
+		vim.api.nvim_set_hl(0, group, { bg = 'none' })
 	end
 end
 
