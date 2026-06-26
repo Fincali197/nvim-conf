@@ -37,11 +37,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 local groups = {
-    'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
-    'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
-    'Conditional', 'Repeat', 'Operator', 'Structure', 'NonText',
-    'SignColumn', 'CursorLine', 'CursorLineNr', 'StatusLine', 'StatusLineNC',
-    'EndOfBuffer', 'NormalFloat'
+	'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
+	'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
+	'Conditional', 'Repeat', 'Operator', 'Structure', 'NonText',
+	'SignColumn', 'CursorLine', 'CursorLineNr', 'StatusLine', 'StatusLineNC',
+	'EndOfBuffer', 'NormalFloat'
 }
 for _, group in ipairs(groups) do
 	if group ~= 'CursorLine' then
@@ -50,5 +50,7 @@ for _, group in ipairs(groups) do
 end
 
 vim.lsp.enable('lua_ls')
+
 vim.lsp.enable('qmlls')
+
 vim.lsp.enable('rust_analyzer')
